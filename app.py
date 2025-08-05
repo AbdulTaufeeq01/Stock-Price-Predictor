@@ -64,14 +64,14 @@ if st.button("Predict"):
 
             # Step 5: Model initialization
             input_size = X_tensor.shape[2]  # Number of features
-            model = stockLSTM(input_size=input_size)
+            model = stockLSTM(input_size=input_size, hidden_size=128, num_layers=3)
             criterion = torch.nn.MSELoss()
-            optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+            optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
 
             # Step 6: Train the model
             if retrain:
-                train_loader = DataLoader(TensorDataset(X_train, y_train), batch_size=32, shuffle=True)
-                train_model(model, train_loader, criterion, optimizer, epochs=10)
+                train_loader = DataLoader(TensorDataset(X_train, y_train), batch_size=64, shuffle=True)
+                train_model(model, train_loader, criterion, optimizer, epochs=300)
 
             # Step 7: Evaluate the model
             rmse, mae = evaluate_model(model, X_test, y_test)
