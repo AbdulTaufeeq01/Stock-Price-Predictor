@@ -131,42 +131,35 @@ Visualization
 Combines recent real prices and predicted prices in a single interactive Plotly graph.
 
 ## 🐞 Troubleshooting
-MultiIndex Errors
-Make sure the DataFrame from yfinance does not have MultiIndex columns. Use .reset_index() if needed.
-
-Empty DataFrame
+- MultiIndex Errors
+- Make sure the DataFrame from yfinance does not have MultiIndex columns. Use .reset_index() if needed.
+- Empty DataFrame
 Happens with invalid tickers or network issues. Try tickers like AAPL, GOOG, MSFT.
-
-Plotly Not Rendering
-Ensure plotly is installed:
+- Plotly Not Rendering
+- Ensure plotly is installed:
 ```bash
 pip install plotly
 ```
-Model Too Inaccurate?
+- Model Too Inaccurate?
 Increase training epochs in train_model() or enhance feature selection.
-
-Check Debug Logs
+- Check Debug Logs
 Logs will help debug shapes, scaling errors, or prediction failures.
 
 ## 🤝 Contributing
-Pull requests are welcome! Here's how to contribute:
-
-Fork the repository
-
-Create a new branch
+- Pull requests are welcome! Here's how to contribute:
+- Fork the repository
+- Create a new branch
 ```bash
 git checkout -b feature/your-feature
 ```
-Make your changes
-
-Commit and push
+- Make your changes
+- Commit and push
 ```bash
 git commit -m "Added new feature"
 git push origin feature/your-feature
 ```
-Open a Pull Request
-
-Please include tests and update the documentation when applicable.
+- Open a Pull Request
+- Please include tests and update the documentation when applicable.
 
 ## 📄 License
 This project is licensed under the MIT License.
