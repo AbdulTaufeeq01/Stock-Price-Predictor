@@ -54,26 +54,18 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 ## 📈 Usage
-Open the app in your browser (usually http://localhost:8501).
-
-Enter a valid stock ticker (e.g., AAPL).
-
-Select number of days to predict (1 to 30).
-
-Check "Retrain Model" to retrain the LSTM or uncheck to reuse the previous model (if caching is implemented).
-
-Click "Predict" to start.
+- Open the app in your browser (usually http://localhost:8501).
+- Enter a valid stock ticker (e.g., AAPL).
+- Select number of days to predict (1 to 30).
+- Check "Retrain Model" to retrain the LSTM or uncheck to reuse the previous model (if caching is implemented).
+- Click "Predict" to start.
 
 ## 🔍 Output
-A table showing the predicted closing prices.
-
-A Plotly line graph with:
-
-Last 60 days of actual closing prices
-
-Predicted values for the next n days
-
-A vertical line marking the start of prediction
+- A table showing the predicted closing prices.
+- A Plotly line graph with:
+- Last 60 days of actual closing prices
+- Predicted values for the next n days
+- A vertical line marking the start of prediction
 
 ## 📊 Example Output Table (7-day prediction)
 Day	Predicted Price (USD)
@@ -96,43 +88,34 @@ Day 7	215.86
 └── README.md            # 📘 Documentation
 ```
 ## 📦 Dependencies
-Python 3.8 or higher
-
-streamlit>=1.20.0
-
-yfinance>=0.2.0
-
-pandas>=1.5.0
-
-numpy>=1.23.0
-
-torch>=2.0.0
-
-scikit-learn>=1.2.0
-
-plotly>=5.10.0
+- Python 3.8 or higher
+- streamlit>=1.20.0
+- yfinance>=0.2.0
+- pandas>=1.5.0
+- numpy>=1.23.0
+- torch>=2.0.0
+- scikit-learn>=1.2.0
+- plotly>=5.10.0
 
 Install them manually if needed:
 ```bash
 pip install streamlit yfinance pandas numpy torch scikit-learn plotly
 ```
 ## ⚙️ How It Works
-Data Download
-Fetches historical stock data from Yahoo Finance using yfinance.
+- Data Download
+- Fetches historical stock data from Yahoo Finance using yfinance.
+- **Feature Engineering**
+***Calculates:***
+- 20 & 50-day SMA
 
-Feature Engineering
-Calculates:
+- 20 & 50-day EMA
 
-20 & 50-day SMA
+- 14-day RSI
 
-20 & 50-day EMA
+- **Data Scaling**
+- Applies MinMaxScaler to normalize features like Close, SMA, EMA, RSI.
 
-14-day RSI
-
-Data Scaling
-Applies MinMaxScaler to normalize features like Close, SMA, EMA, RSI.
-
-Sequence Creation
+- **Sequence Creation**
 Uses a 60-day lookback window to create sequences for training.
 
 Model Training
@@ -185,6 +168,6 @@ Open a Pull Request
 
 Please include tests and update the documentation when applicable.
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License.
 See the LICENSE file for more details.
