@@ -102,33 +102,44 @@ Install them manually if needed:
 pip install streamlit yfinance pandas numpy torch scikit-learn plotly
 ```
 ## ⚙️ How It Works
-- Data Download
-- Fetches historical stock data from Yahoo Finance using yfinance.
-- **Feature Engineering**
-***Calculates:***
-- 20 & 50-day SMA
 
-- 20 & 50-day EMA
+### 📥 Data Download
+- Fetches historical stock data from **Yahoo Finance** using the `yfinance` library.
 
-- 14-day RSI
+### 🛠️ Feature Engineering
+Calculates the following technical indicators:
+- **Simple Moving Averages (SMA):** 20-day and 50-day
+- **Exponential Moving Averages (EMA):** 20-day and 50-day
+- **Relative Strength Index (RSI):** 14-day
 
-- **Data Scaling**
-- Applies MinMaxScaler to normalize features like Close, SMA, EMA, RSI.
+### 📊 Data Scaling
+- Applies `MinMaxScaler` to normalize features such as:
+  - Close
+  - SMA
+  - EMA
+  - RSI
 
-- **Sequence Creation**
-Uses a 60-day lookback window to create sequences for training.
+### 🔁 Sequence Creation
+- Uses a **60-day lookback window** to generate input sequences for training the LSTM model.
 
-Model Training
-Trains a 3-layer PyTorch LSTM with 100 hidden units.
+### 🧠 Model Training
+- Trains a **3-layer LSTM model** implemented in PyTorch with:
+  - 100 hidden units
+  - Dropout for regularization
+  - MSE loss for error calculation
 
-Prediction
-Predicts the next n days using a loop (recursive strategy).
+### 🔮 Prediction
+- Uses a **recursive strategy** to predict stock prices for the next `n` days.
 
-Inverse Transformation
-Converts scaled predictions back to the original price range.
+### 🔁 Inverse Transformation
+- Converts the scaled predictions back to the original price scale using the same scaler.
 
-Visualization
-Combines recent real prices and predicted prices in a single interactive Plotly graph.
+### 📈 Visualization
+- Combines:
+  - Last 60 actual stock prices
+  - Next `n` predicted prices
+- Displays them on an **interactive Plotly chart** for clear and intuitive comparison.
+
 
 ## 🐞 Troubleshooting
 - MultiIndex Errors
