@@ -35,27 +35,25 @@ A **web-based application** for predicting future stock prices using a **Long Sh
 ```bash
 git clone https://github.com/yourusername/stock-price-predictor.git
 cd stock-price-predictor
-2. Create a Virtual Environment (Optional but Recommended)
-bash
-Copy
-Edit
+```
+### 2.**Create a Virtual Environment (Optional but Recommended)**
+```bash
 python -m venv venv
 # Activate:
 # On Windows:
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
-3. Install Dependencies
-bash
-Copy
-Edit
+```
+### 3. **Install Dependencies**
+```bash
 pip install -r requirements.txt
-4. Run the Application
-bash
-Copy
-Edit
+```
+### 4.  **Run the Application**
+```bash
 streamlit run app.py
-📈 Usage
+```
+## 📈 Usage
 Open the app in your browser (usually http://localhost:8501).
 
 Enter a valid stock ticker (e.g., AAPL).
@@ -66,7 +64,7 @@ Check "Retrain Model" to retrain the LSTM or uncheck to reuse the previous model
 
 Click "Predict" to start.
 
-🔍 Output
+## 🔍 Output
 A table showing the predicted closing prices.
 
 A Plotly line graph with:
@@ -77,7 +75,7 @@ Predicted values for the next n days
 
 A vertical line marking the start of prediction
 
-📊 Example Output Table (7-day prediction)
+## 📊 Example Output Table (7-day prediction)
 Day	Predicted Price (USD)
 Day 1	219.16
 Day 2	218.90
@@ -87,10 +85,8 @@ Day 5	217.12
 Day 6	216.47
 Day 7	215.86
 
-🗂 File Structure
-bash
-Copy
-Edit
+## 🗂 File Structure
+```bash
 .
 ├── app.py               # 🚀 Streamlit app script
 ├── data_utils.py        # 📊 Data handling, indicators, scaling
@@ -98,7 +94,8 @@ Edit
 ├── model_utils.py       # 🧠 Model, training, prediction
 ├── requirements.txt     # 📦 Python dependencies
 └── README.md            # 📘 Documentation
-📦 Dependencies
+```
+## 📦 Dependencies
 Python 3.8 or higher
 
 streamlit>=1.20.0
@@ -116,11 +113,10 @@ scikit-learn>=1.2.0
 plotly>=5.10.0
 
 Install them manually if needed:
-bash
-Copy
-Edit
+```bash
 pip install streamlit yfinance pandas numpy torch scikit-learn plotly
-⚙️ How It Works
+```
+## ⚙️ How It Works
 Data Download
 Fetches historical stock data from Yahoo Finance using yfinance.
 
@@ -151,7 +147,7 @@ Converts scaled predictions back to the original price range.
 Visualization
 Combines recent real prices and predicted prices in a single interactive Plotly graph.
 
-🐞 Troubleshooting
+## 🐞 Troubleshooting
 MultiIndex Errors
 Make sure the DataFrame from yfinance does not have MultiIndex columns. Use .reset_index() if needed.
 
@@ -160,37 +156,31 @@ Happens with invalid tickers or network issues. Try tickers like AAPL, GOOG, MSF
 
 Plotly Not Rendering
 Ensure plotly is installed:
-
-bash
-Copy
-Edit
+```bash
 pip install plotly
+```
 Model Too Inaccurate?
 Increase training epochs in train_model() or enhance feature selection.
 
 Check Debug Logs
 Logs will help debug shapes, scaling errors, or prediction failures.
 
-🤝 Contributing
+## 🤝 Contributing
 Pull requests are welcome! Here's how to contribute:
 
 Fork the repository
 
 Create a new branch
-
-bash
-Copy
-Edit
+```bash
 git checkout -b feature/your-feature
+```
 Make your changes
 
 Commit and push
-
-bash
-Copy
-Edit
+```bash
 git commit -m "Added new feature"
 git push origin feature/your-feature
+```
 Open a Pull Request
 
 Please include tests and update the documentation when applicable.
