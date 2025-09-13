@@ -171,7 +171,3 @@ git push origin feature/your-feature
 ```
 - Open a Pull Request
 - Please include tests and update the documentation when applicable.
-
-## 📄 License
-This project is licensed under the MIT License.
-See the LICENSE file for more details.
